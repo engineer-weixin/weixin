@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.com.engineer.weixin.core;
+package com.engineer.weixin.core;
 
 import java.io.Serializable;
 
@@ -13,20 +13,7 @@ import java.io.Serializable;
  */
 public class AccessToken implements Serializable{
 	private static final long serialVersionUID = -335970633938998257L;
-	private static AccessToken instance = null;
-	private AccessToken(){
-		
-	}
-	/**
-	 * 获取凭证实例
-	 * @return
-	 */
-	public static AccessToken getInstance(){
-		if(null == instance){
-			instance = new AccessToken();
-		}
-		return instance;
-	}
+	
 	//获取的凭证
 	private String token;
 	//有效时间 单位：秒
@@ -56,13 +43,5 @@ public class AccessToken implements Serializable{
 	 */
 	public void setExpiresIn(int expiresIn) {
 		this.expiresIn = expiresIn;
-	}
-	/**
-	 * 强制将凭证置空
-	 * @return instance
-	 */
-	public AccessToken refresh(){
-		instance = new AccessToken();
-		return instance;
 	}
 }
